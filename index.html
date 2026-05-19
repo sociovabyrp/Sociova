@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sociova — Learn Social Sciences Free</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">Socio<span>va</span></div>
+    <div class="nav-links">
+      <a onclick="showPage('home')" class="nav-link active">Home</a>
+      <a onclick="showPage('subjects')" class="nav-link">Subjects</a>
+      <a onclick="showPage('infographics')" class="nav-link">Infographics</a>
+      <a onclick="showPage('strategy')" class="nav-link">Strategy</a>
+      <a onclick="showPage('about')" class="nav-link">About</a>
+    </div>
+    <div class="nav-search" onclick="toggleSearch()">
+      <i class="ti ti-search"></i> Search
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="ti ti-menu-2"></i>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="showPage('home');toggleMenu()">Home</a>
+    <a onclick="showPage('subjects');toggleMenu()">Subjects</a>
+    <a onclick="showPage('infographics');toggleMenu()">Infographics</a>
+    <a onclick="showPage('strategy');toggleMenu()">Strategy</a>
+    <a onclick="showPage('about');toggleMenu()">About</a>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <i class="ti ti-search"></i>
+    <input type="text" id="search-input" placeholder="Search topics, chapters, subjects..." oninput="doSearch(this.value)" />
+    <i class="ti ti-x" onclick="toggleSearch()" style="cursor:pointer"></i>
+  </div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-tag">✦ Class 9 · 10 · 11 · 12 &nbsp;|&nbsp; Free Forever</div>
+      <h1>Learn Social<br>Sciences <em>smarter.</em></h1>
+      <p>Notes, books, strategies, infographics and past papers for Geography, History, Civics, Political Science and Economics — curated by Ritesh Pratap Singh.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('subjects')">Browse Subjects <i class="ti ti-arrow-right"></i></button>
+        <button class="btn-ghost" onclick="showPage('strategy')">Study Strategies</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Quick Access</div>
+      <div class="quick-links" id="quick-links-home"></div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Core Subjects</div></div>
+      <div class="stat-item"><div class="stat-num">9–12</div><div class="stat-label">Classes Covered</div></div>
+      <div class="stat-item"><div class="stat-num">70+</div><div class="stat-label">Chapter Notes</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Always Free</div></div>
+    </div>
+  </section>
+
+  <section class="resource-section">
+    <div class="section-header">
+      <h2 class="section-title">Resource Library</h2>
+      <span class="section-sub">Everything in one place</span>
+    </div>
+    <div class="resource-grid">
+      <div class="resource-card" onclick="showPage('subjects')">
+        <div class="rc-icon" style="background:var(--teal-l)">📝</div>
+        <div class="rc-title">Chapter Notes</div>
+        <div class="rc-desc">Detailed notes for every chapter, topic-wise and class-wise</div>
+      </div>
+      <div class="resource-card" onclick="showPage('subjects')">
+        <div class="rc-icon" style="background:var(--gold-l)">📚</div>
+        <div class="rc-title">Books & NCERT</div>
+        <div class="rc-desc">Full NCERT chapters, summaries and reference material</div>
+      </div>
+      <div class="resource-card" onclick="showPage('infographics')">
+        <div class="rc-icon" style="background:var(--plum-l)">🖼️</div>
+        <div class="rc-title">Infographics</div>
+        <div class="rc-desc">Mind maps, flowcharts, timelines and visual summaries</div>
+      </div>
+      <div class="resource-card" onclick="showPage('strategy')">
+        <div class="rc-icon" style="background:var(--coral-l)">🎯</div>
+        <div class="rc-title">Strategies</div>
+        <div class="rc-desc">Study plans, exam tactics and proven techniques</div>
+      </div>
+      <div class="resource-card" onclick="showPage('subjects')">
+        <div class="rc-icon" style="background:var(--slate-l)">📄</div>
+        <div class="rc-title">Previous Papers</div>
+        <div class="rc-desc">Board PYQs from 2015–2024 with model answers</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SUBJECTS PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-subjects">
+  <div class="page-header">
+    <h2>All Subjects</h2>
+    <p>Geography · History · Civics · Political Science · Economics — Class 9 to 12</p>
+  </div>
+  <div class="subjects-grid" id="subjects-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SUBJECT DETAIL PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-detail">
+  <div class="detail-hero" id="detail-hero">
+    <div class="detail-inner">
+      <div class="breadcrumb" onclick="showPage('subjects')">← Back to Subjects</div>
+      <div class="detail-header">
+        <div class="detail-emoji" id="detail-emoji"></div>
+        <div>
+          <h1 class="detail-title" id="detail-title"></h1>
+          <p class="detail-sub" id="detail-sub"></p>
+          <div class="detail-chips" id="detail-chips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="class-tabs" id="class-tabs">
+      <button class="ctab active" onclick="filterClass(this,'all')">All Classes</button>
+      <button class="ctab" onclick="filterClass(this,'9')">Class 9</button>
+      <button class="ctab" onclick="filterClass(this,'10')">Class 10</button>
+      <button class="ctab" onclick="filterClass(this,'11')">Class 11</button>
+      <button class="ctab" onclick="filterClass(this,'12')">Class 12</button>
+    </div>
+    <div class="res-types-grid">
+      <div class="res-type-card">
+        <div class="rt-icon" style="background:var(--teal-l)">📝</div>
+        <div class="rt-title">Chapter Notes</div>
+        <div class="rt-desc">Topic-wise notes with key terms and important points</div>
+        <div class="rt-count" id="rt-notes">—</div>
+      </div>
+      <div class="res-type-card">
+        <div class="rt-icon" style="background:var(--gold-l)">📚</div>
+        <div class="rt-title">Books & NCERT</div>
+        <div class="rt-desc">Full chapters, PDFs and reference material</div>
+        <div class="rt-count" id="rt-books">—</div>
+      </div>
+      <div class="res-type-card">
+        <div class="rt-icon" style="background:var(--plum-l)">🖼️</div>
+        <div class="rt-title">Infographics</div>
+        <div class="rt-desc">Visual summaries, mind maps and diagrams</div>
+        <div class="rt-count" id="rt-infographics">—</div>
+      </div>
+      <div class="res-type-card">
+        <div class="rt-icon" style="background:var(--coral-l)">📄</div>
+        <div class="rt-title">Previous Papers</div>
+        <div class="rt-desc">Board PYQs with model answers</div>
+        <div class="rt-count" id="rt-pyqs">—</div>
+      </div>
+    </div>
+    <div class="topics-label">CHAPTERS & TOPICS</div>
+    <div class="topics-list" id="topics-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     INFOGRAPHICS PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-infographics">
+  <div class="page-header">
+    <h2>Infographics</h2>
+    <p>Visual study aids — timelines, flowcharts, mind maps, diagrams</p>
+  </div>
+  <div class="info-filter">
+    <button class="filter-btn active" onclick="filterInfo(this,'all')">All</button>
+    <button class="filter-btn" onclick="filterInfo(this,'geo')">Geography</button>
+    <button class="filter-btn" onclick="filterInfo(this,'hist')">History</button>
+    <button class="filter-btn" onclick="filterInfo(this,'civic')">Civics</button>
+    <button class="filter-btn" onclick="filterInfo(this,'eco')">Economics</button>
+  </div>
+  <div class="info-grid" id="info-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     STRATEGY PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-strategy">
+  <div class="page-header">
+    <h2>Study Strategies</h2>
+    <p>Proven methods to ace Social Sciences in board exams</p>
+  </div>
+  <div class="strategy-grid" id="strategy-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="about-wrap">
+    <div class="about-card">
+      <div class="about-avatar">RPS</div>
+      <h2 class="about-name">Ritesh Pratap Singh</h2>
+      <p class="about-role">Founder, Sociova</p>
+      <p class="about-bio">Sociova was built out of one simple belief — quality education should be free for every student in India. No paywalls. No subscriptions. Just good notes, honest strategies, and visual resources for Geography, History, Civics, Political Science and Economics from Class 9 to 12.</p>
+      <div class="about-chips">
+        <span class="about-chip">Geography</span>
+        <span class="about-chip">History</span>
+        <span class="about-chip">Civics</span>
+        <span class="about-chip">Economics</span>
+        <span class="about-chip">CBSE Boards</span>
+        <span class="about-chip">UPSC Prep</span>
+      </div>
+      <div class="about-quote">"Knowledge is the only resource that grows when you share it."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Socio<span>va</span></div>
+    <div class="footer-tagline">Free. Forever. For every student.</div>
+    <div class="footer-copy">Made with 💛 by Ritesh Pratap Singh</div>
+  </div>
+</footer>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
